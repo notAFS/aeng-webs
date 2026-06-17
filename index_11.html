@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advance | Structural Engineering, Architecture &amp; Planning</title>
+<meta name="description" content="Advance offers integrated Structural Engineering, Architectural Design, and Planning & Building Control consultancy on residential and commercial projects, UK-wide.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-deep:#406ca1;
+  --navy-mid:#3c6495;
+  --black:#4d515b;
+  --black-soft:#505561;
+  --black-card:#585d67;
+  --teal:#48A6A7;
+  --teal-dim:rgba(72,166,167,0.16);
+  --cream:#f6f4f0;
+  --cream-dim:rgba(246,244,240,0.5);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden;}
+a{text-decoration:none;}
+button{font-family:inherit;}
+img{max-width:100%;display:block;}
+
+/* ===== NAV ===== */
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;height:64px;background:rgba(77,81,91,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:0.5px solid rgba(255,255,255,0.07);
+  position:sticky;top:0;z-index:100;
+}
+.logo-row{display:flex;align-items:center;gap:10px;}
+.logo-img{height:32px;width:32px;object-fit:contain;}
+.brand{font-size:15px;font-weight:700;color:var(--cream);letter-spacing:1.2px;text-transform:uppercase;}
+.nav-links{display:flex;gap:2.25rem;}
+.nav-links a{font-size:14px;color:rgba(255,255,255,0.6);transition:color 0.2s;}
+.nav-links a:hover{color:var(--teal);}
+.nav-cta{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;border:none;padding:10px 24px;border-radius:3px;
+  font-size:13px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;cursor:pointer;
+  overflow:hidden;isolation:isolate;
+}
+.nav-cta .bg-fill{
+  position:absolute;inset:0;background:var(--teal);width:0;transition:width 0.4s ease;z-index:0;border-radius:3px;
+}
+.nav-cta .bg-text{position:relative;z-index:1;color:#ffffff;}
+.nav-cta:hover .bg-fill{width:100%;}
+.nav-cta:hover .bg-text{
+  background:var(--black);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.nav-burger{display:none;background:none;border:none;color:var(--cream);font-size:24px;cursor:pointer;}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:640px;display:flex;align-items:center;justify-content:center;padding:5rem 2.5rem;overflow:hidden;text-align:center;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(175deg,var(--navy-deep) 0%,var(--navy-mid) 40%,var(--black) 100%);}
+.hero-grid{position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(rgba(72,166,167,1) 1px,transparent 1px),linear-gradient(90deg,rgba(72,166,167,1) 1px,transparent 1px);background-size:60px 60px;}
+.hero-c1{position:absolute;top:1.5rem;right:2rem;width:180px;height:180px;border:0.5px solid rgba(72,166,167,0.12);border-radius:50%;}
+.hero-c2{position:absolute;top:3.5rem;right:5rem;width:110px;height:110px;border:0.5px solid rgba(56,93,138,0.18);border-radius:50%;}
+.hero-content{position:relative;z-index:2;max-width:760px;display:flex;flex-direction:column;align-items:center;}
+.eyebrow{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#7ec9ca;font-weight:600;margin-bottom:1.5rem;line-height:1.7;}
+.hero h1{font-size:68px;font-weight:700;line-height:1.15;letter-spacing:-2px;color:var(--cream);margin-bottom:1.5rem;}
+.hero h1 .hover-word{
+  position:relative;display:inline-flex;align-items:baseline;font-style:normal;
+  padding:0.08em 0.14em 0.16em;margin:0 -0.06em;cursor:default;vertical-align:baseline;
+  isolation:isolate;
+}
+.hero h1 .hover-word .hw-fill{
+  position:absolute;left:0;top:0;bottom:0;background:var(--teal);width:0;transition:width 0.4s ease;z-index:0;border-radius:4px;
+}
+.hero h1 .hover-word .hw-text{
+  position:relative;z-index:1;color:var(--cream);
+  transition:opacity 0.3s ease;
+}
+.hero h1 .hover-word:hover .hw-fill{width:100%;}
+.hero h1 .hover-word:hover .hw-text{
+  background:linear-gradient(175deg,var(--navy-deep) 0%,var(--navy-mid) 40%,var(--black) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{font-size:18px;color:rgba(255,255,255,0.82);max-width:560px;line-height:1.75;margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+.hero-scroll{position:absolute;bottom:2rem;right:2.5rem;display:flex;align-items:center;gap:8px;font-size:10px;color:rgba(240,237,232,0.25);letter-spacing:2.5px;text-transform:uppercase;}
+.scroll-line{width:36px;height:0.5px;background:rgba(240,237,232,0.2);}
+
+/* Ghost buttons - cutout fill effect, matching hover-word style */
+.btn-ghost{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;border:none;padding:14px 30px;font-size:14px;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:3px;
+  overflow:hidden;isolation:isolate;
+}
+.btn-ghost .bg-fill{
+  position:absolute;inset:0;background:var(--teal);width:0;transition:width 0.4s ease;z-index:0;border-radius:3px;
+}
+.btn-ghost .bg-text{position:relative;z-index:1;color:#ffffff;transition:opacity 0.3s ease;}
+.btn-ghost:hover .bg-fill{width:100%;}
+.btn-ghost.on-hero:hover .bg-text{
+  background:linear-gradient(175deg,var(--navy-deep) 0%,var(--navy-mid) 40%,var(--black) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.btn-ghost.on-cta:hover .bg-text{
+  background:linear-gradient(175deg,var(--black) 0%,var(--navy-deep) 50%,var(--black) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+/* ===== GENERIC SECTIONS ===== */
+.sec{padding:5.5rem 2.5rem;}
+.sec-dark{background:var(--black-soft);}
+.slabel{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;}
+.stitle{font-size:42px;font-weight:700;letter-spacing:-1px;line-height:1.15;color:var(--cream);margin-bottom:2.75rem;}
+.ssub{font-size:16px;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:8px;}
+.stars-inline{color:#f5b400;font-size:15px;letter-spacing:1px;}
+.tophead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.75rem;flex-wrap:wrap;gap:1rem;}
+
+/* ===== SERVICES ===== */
+.srv-grid{display:flex;gap:1px;background:rgba(255,255,255,0.05);flex-wrap:wrap;}
+.srv{flex:1 1 280px;background:var(--black);padding:2.5rem 2rem;transition:background 0.25s;cursor:default;text-align:center;}
+.srv:hover{background:#3f424b;}
+.srv-icon{font-size:32px;color:#385D8A;margin-bottom:1.5rem;}
+.srv-title{font-size:19px;font-weight:600;color:var(--cream);margin-bottom:0.875rem;}
+.srv-desc{font-size:16.5px;color:rgba(255,255,255,0.66);line-height:1.75;transition:color 0.25s ease;}
+.srv:hover .srv-desc{color:rgba(255,255,255,0.92);}
+.srv-bar{height:1.5px;background:var(--teal);width:0;transition:width 0.35s ease;margin-top:1.5rem;}
+.srv:hover .srv-bar{width:100%;}
+.srv-arr{margin-top:0.875rem;font-size:20px;color:rgba(72,166,167,0);transition:color 0.25s,transform 0.25s;transform:translateX(-6px);}
+.srv:hover .srv-arr{color:var(--teal);transform:translateX(0);}
+
+/* ===== PROJECTS CAROUSEL ===== */
+.carousel-grid{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.cgroup{flex:1 1 300px;display:flex;flex-direction:column;text-align:center;}
+.cframe{position:relative;width:100%;aspect-ratio:4/3;border-radius:5px;overflow:hidden;background:#1a1a1a;}
+.cframe img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;opacity:0;transition:opacity 0.5s ease;}
+.cframe img.active{opacity:1;}
+.cdots{display:flex;gap:6px;justify-content:center;margin-top:0.875rem;}
+.cdot{width:6px;height:6px;border-radius:50%;background:rgba(240,237,232,0.2);cursor:pointer;transition:background 0.2s,width 0.2s;border:none;padding:0;}
+.cdot.active{background:var(--teal);width:16px;border-radius:3px;}
+.cname{font-size:19px;font-weight:600;color:var(--cream);margin-top:1.1rem;margin-bottom:0.6rem;}
+.cdesc{font-size:16.5px;color:rgba(255,255,255,0.6);line-height:1.75;}
+.cnav{position:absolute;top:50%;transform:translateY(-50%);width:30px;height:30px;background:rgba(11,11,11,0.55);border:none;border-radius:50%;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background 0.2s;}
+.cnav:hover{background:rgba(72,166,167,0.85);}
+.cnav.prev{left:10px;}
+.cnav.next{right:10px;}
+
+/* ===== TESTIMONIALS ===== */
+.rev-card{background:var(--black-card);border:0.5px solid rgba(255,255,255,0.07);border-radius:6px;padding:2.25rem 2rem;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:280px;transition:border-color 0.2s,background 0.2s;}
+.rev-card:hover{border-color:rgba(72,166,167,0.3);background:#5d626d;}
+.rev-card.empty{visibility:hidden;}
+.rev-stars{color:#f5b400;font-size:15px;margin-bottom:1.5rem;letter-spacing:2px;flex-shrink:0;}
+.rev-text{font-size:16.5px;color:rgba(255,255,255,0.86);line-height:1.75;flex-grow:1;transition:color 0.25s ease;}
+.rev-card:hover .rev-text{color:rgba(255,255,255,1);}
+.rev-foot{padding-top:1.25rem;margin-top:1.5rem;flex-shrink:0;}
+.rev-name{font-size:14px;font-weight:600;color:var(--cream);}
+.btn-show-more{
+  margin-top:2.5rem;background:transparent;color:var(--cream);border:1.5px solid rgba(243,241,236,0.3);
+  padding:13px 30px;font-size:13px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;
+  border-radius:3px;cursor:pointer;transition:all 0.2s;
+}
+.btn-show-more:hover{border-color:var(--teal);color:var(--teal);background:rgba(72,166,167,0.08);}
+
+@media (max-width:880px){
+  #revGridVisible, .rev-grid{grid-template-columns:1fr !important;}
+}
+
+/* ===== PILLARS ===== */
+.pillars-grid{display:flex;gap:1.5rem;margin-top:2.75rem;flex-wrap:wrap;}
+.pillar{flex:1 1 260px;border:0.5px solid rgba(255,255,255,0.06);border-radius:4px;padding:2.5rem 2.1rem;background:var(--black-soft);text-align:center;transition:background 0.25s ease,border-color 0.25s ease;}
+.pillar:hover{background:#3f424b;border-color:rgba(72,166,167,0.3);}
+.pil-title{font-size:19px;font-weight:600;color:var(--cream);margin-bottom:0.75rem;}
+.pil-desc{font-size:16.5px;color:rgba(255,255,255,0.74);line-height:1.75;transition:color 0.25s ease;}
+.pillar:hover .pil-desc{color:rgba(255,255,255,0.96);}
+
+/* ===== CTA ===== */
+.cta-band{position:relative;padding:6rem 2.5rem;text-align:center;overflow:hidden;}
+.cta-bg{position:absolute;inset:0;background:linear-gradient(175deg,var(--black) 0%,var(--navy-deep) 50%,var(--black) 100%);}
+.cta-tl,.cta-bl{position:absolute;left:0;right:0;height:0.5px;background:linear-gradient(90deg,transparent,rgba(72,166,167,0.3),transparent);}
+.cta-tl{top:0;}
+.cta-bl{bottom:0;}
+.cta-inner{position:relative;z-index:2;}
+.cta-band h2{font-size:48px;font-weight:700;letter-spacing:-1.5px;color:var(--cream);margin-bottom:0.875rem;}
+.cta-band p{font-size:17px;color:rgba(255,255,255,0.78);margin-bottom:2.75rem;}
+.cta-row{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-bottom:2.75rem;}
+.cta-c{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:500;color:rgba(255,255,255,0.85);transition:color 0.2s;}
+.cta-c svg{flex-shrink:0;}
+.cta-c:hover{color:var(--teal);}
+
+/* ===== FOOTER ===== */
+.foot{padding:1.75rem 2.5rem;background:#484d56;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid rgba(255,255,255,0.05);flex-wrap:wrap;gap:1rem;}
+.foot-left{font-size:11.5px;color:rgba(255,255,255,0.4);}
+.foot-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.foot-links a{font-size:11.5px;color:rgba(255,255,255,0.55);}
+.foot-links a:hover{color:var(--teal);}
+
+/* ===== SCROLL REVEALS ===== */
+.r{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.r.in{opacity:1;transform:translateY(0);}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:880px){
+  .nav-links{display:none;}
+  .hero h1{font-size:48px;}
+  .stitle{font-size:32px;}
+  .cta-band h2{font-size:36px;}
+}
+@media (max-width:600px){
+  .nav{padding:0 1.25rem;}
+  .hero{padding:3.5rem 1.25rem;min-height:560px;}
+  .hero h1{font-size:38px;}
+  .hero-sub{font-size:16px;}
+  .sec{padding:4rem 1.25rem;}
+  .cta-band{padding:4.5rem 1.25rem;}
+  .foot{padding:1.5rem 1.25rem;flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo-row">
+    <img class="logo-img" src="images/logo-white.png" alt="Advance logo">
+    <span class="brand">Advance</span>
+  </div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="window.location.href='tel:+447899855551'"><span class="bg-fill"></span><span class="bg-text">Free consult</span></button>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-c1"></div>
+  <div class="hero-c2"></div>
+  <div class="hero-content">
+    <div class="eyebrow" id="e1">Structural Engineering &middot; Architecture &middot; Planning &amp; Building Control</div>
+    <h1 id="e2"><span class="hover-word"><span class="hw-fill"></span><span class="hw-text">Engineered</span></span><br>to <span class="hover-word"><span class="hw-fill"></span><span class="hw-text">last</span></span></h1>
+    <p class="hero-sub" id="e3">We are an integrated Structural Engineering and Architectural Design firm, offering nationwide consultancy on residential and commercial projects.</p>
+    <div class="hero-btns" id="e4">
+      <button class="btn-ghost on-hero" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"><span class="bg-fill"></span><span class="bg-text">Free consultation</span></button>
+      <button class="btn-ghost on-hero" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})"><span class="bg-fill"></span><span class="bg-text">View projects</span></button>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<section class="sec" id="services" style="text-align:center;">
+  <div class="slabel r">What we do</div>
+  <h2 class="stitle r">All the expertise,<br>under one roof</h2>
+  <div class="srv-grid r">
+    <div class="srv">
+      <div class="srv-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M4 21h16"/><path d="M9 21v-6h6v6"/><path d="M9 12h.01M15 12h.01M12 9h.01"/></svg></div>
+      <div class="srv-title">Structural Engineering</div>
+      <p class="srv-desc">Our Structural Engineers thrive when facing complex engineering problems. Having a can-do attitude, using advanced design and analysis tools combined with traditional engineering judgement, we undertake all types and scales of projects &mdash; from simple floor layout alterations to new builds, warehouses or multi-storey basements.</p>
+      <div class="srv-bar"></div>
+      <div class="srv-arr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+    <div class="srv">
+      <div class="srv-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l12-4.5 5 13-12 4.5-5-13z"/><path d="M9 7l1 2.5M12.5 5.8l1 2.5M16 4.6l1 2.5"/></svg></div>
+      <div class="srv-title">Architectural Design</div>
+      <p class="srv-desc">We are specialised in residential architecture and help our clients unlock the potential of their homes through extensions, conversions or renovations. Our multi-disciplinary teams work together to bring holistic solutions to complex situations &mdash; selected for creativity, aesthetic acumen and technical skills.</p>
+      <div class="srv-bar"></div>
+      <div class="srv-arr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+    <div class="srv">
+      <div class="srv-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h8m-2-18l4 4m-4-4v4h4"/><circle cx="15" cy="16" r="3"/><path d="M13.5 18.5L13 21l2-1 2 1-.5-2.5"/></svg></div>
+      <div class="srv-title">Planning &amp; Building Control</div>
+      <p class="srv-desc">We have extensive experience working with both planning and building control authorities, with a positive track record of successfully approved projects. Using our engineering capacity and our architects' thorough Building Regulations knowledge, we ensure your project gets approved without delays.</p>
+      <div class="srv-bar"></div>
+      <div class="srv-arr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="projects" style="text-align:center;">
+  <div class="slabel r">Selected work</div>
+  <h2 class="stitle r">Projects</h2>
+  <div class="carousel-grid r">
+
+    <div class="cgroup">
+      <div class="cframe" id="car1">
+        <img class="active" data-i="0" src="images/project-newbuild-1.jpg" alt="New build extension with stone cladding and bi-fold doors">
+        <img data-i="1" src="images/project-newbuild-2.jpg" alt="Large detached house rear extension with bi-fold doors onto garden">
+        <img data-i="2" src="images/project-newbuild-3.jpg" alt="Terraced house rear extension with garden">
+        <button class="cnav prev" aria-label="Previous photo" onclick="moveCar(1,-1)">&#8249;</button>
+        <button class="cnav next" aria-label="Next photo" onclick="moveCar(1,1)">&#8250;</button>
+      </div>
+      <div class="cdots" id="dots1"></div>
+      <div class="cname">New Build, Extensions &amp; Conversions</div>
+      <div class="cdesc">New build design. Extensions: rear, side, wrap-around, multi-storey. Conversions: office to residential, bungalow, barn, loft, garage.</div>
+    </div>
+
+    <div class="cgroup">
+      <div class="cframe" id="car2">
+        <img class="active" data-i="0" src="images/project-structural-1.jpg" alt="Dark modern open-plan kitchen extension interior">
+        <img data-i="1" src="images/project-structural-2.jpg" alt="Bright open-plan kitchen extension interior">
+        <img data-i="2" src="images/project-structural-3.jpg" alt="Bungalow front extension exterior">
+        <button class="cnav prev" aria-label="Previous photo" onclick="moveCar(2,-1)">&#8249;</button>
+        <button class="cnav next" aria-label="Next photo" onclick="moveCar(2,1)">&#8250;</button>
+      </div>
+      <div class="cdots" id="dots2"></div>
+      <div class="cname">Structural Alterations</div>
+      <div class="cdesc">Change of layout, removal of walls. Foundations, drainage, garage, beams, lintels, roof, floor/ceiling joists. Retaining walls, bridges, access ramps.</div>
+    </div>
+
+    <div class="cgroup">
+      <div class="cframe" id="car3">
+        <img class="active" data-i="0" src="images/project-party-1.jpg" alt="Bungalow loft conversion exterior">
+        <img data-i="1" src="images/project-party-2.jpg" alt="Terraced house loft conversion exterior">
+        <img data-i="2" src="images/project-party-3.jpg" alt="Aerial view of residential properties">
+        <button class="cnav prev" aria-label="Previous photo" onclick="moveCar(3,-1)">&#8249;</button>
+        <button class="cnav next" aria-label="Next photo" onclick="moveCar(3,1)">&#8250;</button>
+      </div>
+      <div class="cdots" id="dots3"></div>
+      <div class="cname">Investigations &amp; Party Wall</div>
+      <div class="cdesc">Structural investigations: crack surveys, non-traditional construction, lender or insurance suitability reports, underpinning. Party Wall Notices.</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec" id="reviews" style="text-align:center;">
+  <div class="slabel r">What clients say</div>
+  <h2 class="stitle r" style="margin-bottom:0.75rem">Trusted by our clients</h2>
+  <div class="ssub r" style="justify-content:center;margin-bottom:2.75rem;"><span class="stars-inline">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 average across Google Reviews</div>
+
+  <div class="rev-grid r" id="revGridVisible" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;text-align:left;">
+    <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">I received a response quickly. The turnaround in providing the complete engineering report and drawings was swift and tailored to my needs. Adrian encouraged dialogue with my builder to ensure he was confident and competent. Straight forward, diligent and comprehensive.</div><div class="rev-foot"><span class="rev-name">Daniel T.</span></div></div>
+    <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">Adrian and his team were very prompt and efficient when helping us with the structural aspects of our extension. As soon as we reached out they arranged a suitable time to chat and give us the help we needed. Wouldn't hesitate to recommend or use again.</div><div class="rev-foot"><span class="rev-name">Lee G.</span></div></div>
+    <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">I have found Advance Engineering to be incredibly helpful. They provided a structural survey at short notice and for a more than reasonable price. Adrian has always responded promptly and provided exactly the advice and guidance I needed.</div><div class="rev-foot"><span class="rev-name">Heather S.</span></div></div>
+  </div>
+
+  <div id="revGridHidden" style="display:none;text-align:left;margin-top:1.5rem;">
+    <div class="rev-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+      <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">Amazing service of the very highest standard. Adrian went above and beyond to make our lives so much easier at such little cost. I have never received such dedication, professionalism and customer care from a company.</div><div class="rev-foot"><span class="rev-name">James H.</span></div></div>
+      <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">I emailed Adrian after looking at his reviews. He replied quickly and came to view my property the very next day, taking a thorough look around. He produced my report and drawings for a load bearing wall removal within the week. Went above and beyond!</div><div class="rev-foot"><span class="rev-name">Samantha M.</span></div></div>
+      <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">Could not have asked for a better service, would highly recommend them! They were very accommodating for a short time scale, easy to work with, and always there to answer any questions. Very reasonably priced too.</div><div class="rev-foot"><span class="rev-name">Stuart T.</span></div></div>
+    </div>
+    <div class="rev-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+      <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">Excellent service. We had a builder fail to submit our building control application then disappear. Adrian helped us very quickly and efficiently, clearly explained, and we successfully gained our missing building control document.</div><div class="rev-foot"><span class="rev-name">Aden C.</span></div></div>
+      <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">We needed a structural survey on a house and the team were quick to answer, efficient in organising and providing the necessary report. Knowledgeable people, fair and professional. Will work with you again &mdash; thanks!</div><div class="rev-foot"><span class="rev-name">Julien E.</span></div></div>
+      <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">I was looking for a structural engineer to draw up plans for a steel lintel between two rooms. Adrian was quick to get me a quotation back, and delivered the plans all complete in 6 weeks. Thank you Adrian.</div><div class="rev-foot"><span class="rev-name">Simon H.</span></div></div>
+    </div>
+    <div class="rev-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
+      <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">We were in the process of buying a house in Somerset and needed a rapid survey against a tight deadline. Adrian and his team reacted quickly, completing the survey on a weekend with detailed technical outputs for the roof work.</div><div class="rev-foot"><span class="rev-name">Phil F.</span></div></div>
+      <div class="rev-card"><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rev-text">Superb. Great communication throughout. Nothing was too much trouble. Thank you very much. Highly recommend.</div><div class="rev-foot"><span class="rev-name">Wayne R.</span></div></div>
+      <div class="rev-card empty"></div>
+    </div>
+  </div>
+
+  <button class="btn-show-more r" id="showMoreBtn" onclick="toggleReviews()">Show more reviews</button>
+</section>
+
+
+<section class="sec sec-dark" id="about" style="text-align:center;">
+  <div class="slabel r">Why us</div>
+  <h2 class="stitle r">What to expect</h2>
+  <div class="pillars-grid r">
+    <div class="pillar"><div class="pil-title">Professionalism</div><p class="pil-desc">Your project will be delivered on time, every time, with regular updates along the way and support available after delivery.</p></div>
+    <div class="pillar"><div class="pil-title">Value &amp; fair prices</div><p class="pil-desc">In addition to our competitive rates, we tailor our solutions to ensure that you avoid unnecessary materials and labour costs.</p></div>
+    <div class="pillar"><div class="pil-title">Expertise</div><p class="pil-desc">Carried out by qualified professionals, our work is aligned with applicable industry standards, ensuring your structure is robust and fit for purpose.</p></div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="cta-bg"></div><div class="cta-tl"></div><div class="cta-bl"></div>
+  <div class="cta-inner">
+    <h2 class="r">Ready to advance?</h2>
+    <p class="r">Free, no-obligation consultation &mdash; get in touch today.</p>
+    <div class="cta-row r">
+      <a class="cta-c" href="tel:+443301333293"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg> +44 3301 333 293</a>
+      <a class="cta-c" href="https://wa.me/447899855551" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.51 3.62 1.4 5.13L2 22l5.1-1.49a9.85 9.85 0 004.94 1.31h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.83 14.07c-.25.7-1.45 1.34-2 1.43-.51.08-1.15.11-1.86-.12-.42-.13-.97-.31-1.66-.61-2.92-1.26-4.83-4.2-4.97-4.39-.15-.2-1.2-1.59-1.2-3.03 0-1.44.76-2.15 1.03-2.44.27-.29.59-.36.79-.36s.4 0 .57.01c.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.61.17.3.78 1.28 1.67 2.08 1.15 1.03 2.13 1.36 2.43 1.51.3.15.48.13.65-.05.18-.18.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.07.13.07.71-.18 1.41z"/></svg> +44 7899 855 551</a>
+      <a class="cta-c" href="mailto:office@aeng.uk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> office@aeng.uk</a>
+    </div>
+    <button class="btn-ghost on-cta r" onclick="window.location.href='tel:+447899855551'"><span class="bg-fill"></span><span class="bg-text">Get in touch</span></button>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-left">&copy; Advance Skills Force Ltd 2026. All rights reserved.</div>
+  <div class="foot-links">
+    <a href="#projects">Projects</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Hero stagger reveal on load */
+  var heroEls=[{id:'e1',d:0},{id:'e2',d:110},{id:'e3',d:240},{id:'e4',d:380}];
+  heroEls.forEach(function(item){
+    var el=document.getElementById(item.id);
+    if(!el)return;
+    el.style.opacity='0';
+    el.style.transform='translateY(22px)';
+    el.style.transition='opacity 0.8s ease,transform 0.8s ease';
+    setTimeout(function(){el.style.opacity='1';el.style.transform='translateY(0)';},100+item.d);
+  });
+
+  /* Scroll reveal for sections */
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.r').forEach(function(el){obs.observe(el);});
+
+  /* Project carousels */
+  var carState={1:0,2:0,3:0};
+  function renderDots(carId){
+    var el=document.getElementById('dots'+carId);
+    el.innerHTML='';
+    for(var i=0;i<3;i++){
+      var d=document.createElement('button');
+      d.className='cdot'+(i===carState[carId]?' active':'');
+      d.setAttribute('aria-label','Show photo '+(i+1));
+      d.onclick=(function(cid,idx){return function(){setCar(cid,idx);};})(carId,i);
+      el.appendChild(d);
+    }
+  }
+  function setCar(carId,idx){
+    carState[carId]=idx;
+    var frame=document.getElementById('car'+carId);
+    frame.querySelectorAll('img').forEach(function(img){
+      img.classList.toggle('active', parseInt(img.dataset.i)===idx);
+    });
+    renderDots(carId);
+  }
+  window.moveCar=function(carId,dir){
+    setCar(carId,(carState[carId]+dir+3)%3);
+  };
+  [1,2,3].forEach(renderDots);
+  setInterval(function(){[1,2,3].forEach(function(id){window.moveCar(id,1);});},5000);
+
+  /* Testimonials show-more toggle */
+  window.toggleReviews=function(){
+    var hidden=document.getElementById('revGridHidden');
+    var btn=document.getElementById('showMoreBtn');
+    var isHidden = hidden.style.display==='none';
+    hidden.style.display = isHidden ? 'block' : 'none';
+    btn.textContent = isHidden ? 'Show fewer reviews' : 'Show more reviews';
+    if(!isHidden){
+      document.getElementById('revGridVisible').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  };
+})();
+</script>
+
+</body>
+</html>
